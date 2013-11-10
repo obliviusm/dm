@@ -92,7 +92,7 @@ post '/signup' do
 		User.first(login: session[:login]).visits.create(created_at: Time.now)
 		redirect '/'
 	else
-		flash[:error] = user.errors
+		flash[:error] = user.errors.full_messages
 		redirect '/signup'
 	end
 end

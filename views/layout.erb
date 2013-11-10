@@ -4,11 +4,7 @@
 		<h1>Userious</h1>
 		<p>Flash:
 			<%= flash[:notice] %>
-			<% if flash[:error] %>
-				<% flash[:error].each do |k, v| %>
-					<%= k + v %>
-				<%end%>
-			<%end%>
+			<%= flash[:error] %>
 		</p>
 		<%= yield%>
 		<p>Session:<%= session.inspect%></p>
