@@ -1,0 +1,9 @@
+<html>
+	<head><title>Title</title></head>
+	<body>
+		<h1>Userious</h1>
+		<p>Flash:<%= flash[:notice] %></p>
+		<%= yield%>
+		<p>Session:<%= session.inspect%></p>
+	</body>
+</html>
