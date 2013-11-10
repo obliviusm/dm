@@ -2,8 +2,20 @@
 	<head><title>Title</title></head>
 	<body>
 		<h1>Userious</h1>
-		<p>Flash:<%= flash[:notice] %></p>
+		<p>Flash:
+			<%= flash[:notice] %>
+			<% if flash[:error] %>
+				<% flash[:error].each do |k, v| %>
+					<%= k + v %>
+				<%end%>
+			<%end%>
+		</p>
 		<%= yield%>
 		<p>Session:<%= session.inspect%></p>
+		<h2>Menu</h2>
+		<a href="/">Main page</a>
+		<a href="/login">Log in</a>
+		<a href="/logout">Log out</a>
+		<a href="/signup">Sign up</a>
 	</body>
 </html>
