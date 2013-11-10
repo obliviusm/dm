@@ -46,6 +46,7 @@ end
 
 get '/' do
 	@user = User.first(login: session[:login])
+	@visits = @user.visits.all
 	erb :'index'
 end
 
@@ -56,6 +57,8 @@ end
 post '/login' do
 	if session[:login] = User.auth(params["login"], params["pass"]).login
 		flash[:notice] = "Hello"
+		#add visit
+		User.first(login: session[:login]).visits.create(created_at: Time.now)
 		redirect '/'
 	else
 		flash[:notice] = "Wrong"
